@@ -1,0 +1,70 @@
+{
+  "expo": {
+    "name": "my-app",
+    "slug": "my-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/Furgo_Truck.png",
+    "scheme": "myapp",
+    "userInterfaceStyle": "automatic",
+    // "newArchEnabled": true,  // <-- 1. BORRADO DE AQUÍ (lugar incorrecto)
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#E6F4FE",
+        "foregroundImage": "./assets/images/Furgo_Truck.png",
+        "backgroundImage": "./assets/images/Furgo_Truck.png",
+        "monochromeImage": "./assets/images/Furgo_Truck.png"
+      },
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false,
+      // 2. Deja el 'package' que quieras usar (este debe coincidir con el de abajo)
+      "package": "com.joesalgado.myapp"
+      // "compileSdkVersion": 35 // <-- 3. BORRADO DE AQUÍ (se define en el plugin)
+    },
+    "web": {
+      "output": "static",
+      "favicon": "./assets/images/Furgo_Truck.png"
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/images/Furgo_Truck.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff",
+          "dark": {
+            "backgroundColor": "#000000"
+          }
+        }
+      ],
+      [
+        "expo-build-properties",
+        // 4. AQUÍ ES DONDE DEBEN IR TODAS LAS CONFIGURACIONES
+        {
+          "android": {
+            "package": "com.joesalgado.myapp",
+            "compileSdkVersion": 35,    // Arreglo error compileSdk
+            "targetSdkVersion": 34,
+            "minSdkVersion": 24,        // Arreglo error minSdk
+            "newArchEnabled": true      // Arreglo error Reanimated/Worklets
+          }
+        }
+      ]
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "aa6b0f15-2989-4ccf-93ef-6e1b652ec3ca"
+      }
+    }
+  }
+}
